@@ -89,7 +89,9 @@ int main() {
                 break;
             case 2:
                 if (isEmpty(&undo)) {
-                    printf("=!!There's no more to Undo!!=\n");
+                    printf("\33[0;33;31m");
+                    printf("=!!There's no more to Undo!!=\n\n");
+                    printf("\33[0m");
                 } else {
                     push(&redo, currText);
                     strcpy(currText, pop(&undo));
@@ -97,7 +99,9 @@ int main() {
                 break;
             case 3:
                 if (isEmpty(&redo)) {
-                    printf("=!!There's no more to Redo!!=\n");
+                    printf("\33[0;33;31m");
+                    printf("=!!There's no more to Redo!!=\n\n");
+                    printf("\33[0m");
                 } else {
                     push(&undo, currText);
                     strcpy(currText, pop(&redo));
@@ -105,25 +109,33 @@ int main() {
                 break;
             case 4:
                 if (isEmpty(&undo)) {
-                    printf("=!!There's no text in Undo!!=\n");
+                    printf("\33[0;33;31m");
+                    printf("=!!There's no text in Undo!!=\n\n");
+                    printf("\33[0m");
                 } else {
                     printf("Last Undo : '%s'\n", peek(&undo));
                 }
                 break;
             case 5:
                 if (isEmpty(&redo)) {
-                    printf("=!!There's no text in Redo!!=\n");
+                    printf("\33[0;33;31m");
+                    printf("=!!There's no text in Redo!!=\n\n");
+                    printf("\33[0m");
                 } else {
                     printf("Last Redo : '%s'\n", peek(&redo));
                 }
                 break;
             case 6:
+                printf("\33[0;33;32m");
                 printf("=!!Exiting!!=");
+                printf("\33[0m");
                 exit(0);
                 break;
             
             default:
-                printf("=!!Invalid Input!!=\n");
+                printf("\33[0;33;31m");
+                printf("=!!Invalid Input!!=\n\n");
+                printf("\33[0m");
                 break;
         }
     }
