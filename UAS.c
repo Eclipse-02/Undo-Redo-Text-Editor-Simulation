@@ -1,3 +1,12 @@
+/*
+PROGRAM SIMULASI UNDO-REDO PADA EDITOR TEKS
+KELOMPOK 6: - Rafa Umar Abdus Syakur     (2410501045)
+            - Muhammad Sakly             (2410501057)
+            - Khresna Bayu Adji Purnomo  (2410501059)
+            - Siti Hanifah               (2410501064)
+            - Muhammad Kafka Firdaus     (2410501069)
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -90,7 +99,7 @@ int main() {
             case 2:
                 if (isEmpty(&undo)) {
                     printf("\33[0;33;31m");
-                    printf("=!!There's no more to Undo!!=\n\n");
+                    printf("=!!There's no more to Undo!!=\n");
                     printf("\33[0m");
                 } else {
                     push(&redo, currText);
@@ -100,7 +109,7 @@ int main() {
             case 3:
                 if (isEmpty(&redo)) {
                     printf("\33[0;33;31m");
-                    printf("=!!There's no more to Redo!!=\n\n");
+                    printf("=!!There's no more to Redo!!=\n");
                     printf("\33[0m");
                 } else {
                     push(&undo, currText);
@@ -110,19 +119,23 @@ int main() {
             case 4:
                 if (isEmpty(&undo)) {
                     printf("\33[0;33;31m");
-                    printf("=!!There's no text in Undo!!=\n\n");
+                    printf("=!!There's no text in Undo!!=\n");
                     printf("\33[0m");
                 } else {
+                    printf("\33[0;33;32m");
                     printf("Last Undo : '%s'\n", peek(&undo));
+                    printf("\33[0m");
                 }
                 break;
             case 5:
                 if (isEmpty(&redo)) {
                     printf("\33[0;33;31m");
-                    printf("=!!There's no text in Redo!!=\n\n");
+                    printf("=!!There's no text in Redo!!=\n");
                     printf("\33[0m");
                 } else {
+                    printf("\33[0;33;32m");
                     printf("Last Redo : '%s'\n", peek(&redo));
+                    printf("\33[0m");
                 }
                 break;
             case 6:
@@ -134,12 +147,11 @@ int main() {
             
             default:
                 printf("\33[0;33;31m");
-                printf("=!!Invalid Input!!=\n\n");
+                printf("=!!Invalid Input!!=\n");
                 printf("\33[0m");
                 break;
         }
     }
     
-
     return 0;
 }
